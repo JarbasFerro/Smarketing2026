@@ -18,7 +18,7 @@ export default function ABBSmarketing2026EN({ lang, onLanguageChange }: Props) {
   const ids = useMemo(() => [
     "basicos","vision","flujo","inicio30","ejemplo","principios",
     "sprints","trabajo","gobernanza","roles","rituales","kpis",
-    "stakeholders","riesgos","normas","glosario","faq","plantillas","anexos"
+    "stakeholders","riesgos","normas","glosario","faq","plantillas"
   ], []);
 
   const [active, setActive] = useState(ids[0]);
@@ -49,12 +49,12 @@ export default function ABBSmarketing2026EN({ lang, onLanguageChange }: Props) {
     <div className="min-h-screen bg-white text-neutral-900">
       
       <header className="sticky top-0 z-50 bg-white text-[var(--ink)] border-b border-[var(--line)] shadow-sm">
-        <div className="mx-auto max-w-6xl px-5 py-3 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+        <div className="mx-auto max-w-6xl px-5 py-3 grid grid-cols-[auto_1fr_auto] items-center gap-4">
+          <div className="flex items-center">
             <img src={`${base}assets/abb-logo.svg`} alt="ABB" className="h-8 w-auto" onError={(e)=>{(e.currentTarget as HTMLImageElement).style.display='none'}} />
-            <div className="font-bold tracking-wide text-[var(--abb-red)]">Working Guide — Smarketing Agreement 2026</div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="text-center font-bold tracking-wide text-[var(--abb-red)]">Working Guide — Smarketing Agreement 2026</div>
+          <div className="flex items-center justify-end gap-2">
             <button
               type="button"
               onClick={() => onLanguageChange('es')}
@@ -497,24 +497,6 @@ NEXT REVIEW: __________________________  STATUS (G/Y/R): _________`}</pre>
             </Details>
           </Section>
 
-          <Section id="anexos" title="18) Annexes">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <Card title="Monthly review pack (example)">
-                <ul className="list-disc pl-5 text-sm space-y-1">
-                  <li>Cover with OKRs + traffic-light status.</li>
-                  <li>Top 3 risks/blockers with decision request.</li>
-                  <li>Initiatives table with owner, status, budget, next step.</li>
-                </ul>
-              </Card>
-              <Card title="Example Circles">
-                <ul className="list-disc pl-5 text-sm space-y-1">
-                  <li>Distribution Channel — focus on installers.</li>
-                  <li>Power Conversion OEM — US export.</li>
-                  <li>GenSet OEM — certifications and go-to-market.</li>
-                </ul>
-              </Card>
-            </div>
-          </Section>
 
           <footer className="pt-6 text-xs text-[var(--muted)]">
             © ABB Electrification — Smart Power · Internal use · This page summarises the “Working Guide: Smarketing Agreement 2026”.
@@ -610,7 +592,6 @@ function label(id: string) {
     case "glosario": return "15. Glossary";
     case "faq": return "16. FAQ";
     case "plantillas": return "17. Templates";
-    case "anexos": return "18. Annexes";
     default: return id;
   }
 }

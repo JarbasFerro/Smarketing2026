@@ -36,7 +36,6 @@ export default function ABBSmarketing2026({ lang, onLanguageChange }: Props) {
       "glosario",
       "faq",
       "plantillas",
-      "anexos",
     ],
     []
   );
@@ -68,12 +67,12 @@ export default function ABBSmarketing2026({ lang, onLanguageChange }: Props) {
     <div className="min-h-screen bg-white text-neutral-900">
       
       <header className="sticky top-0 z-50 bg-white text-[var(--ink)] border-b border-[var(--line)] shadow-sm">
-        <div className="mx-auto max-w-6xl px-5 py-3 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+        <div className="mx-auto max-w-6xl px-5 py-3 grid grid-cols-[auto_1fr_auto] items-center gap-4">
+          <div className="flex items-center">
             <img src={`${base}assets/abb-logo.svg`} alt="ABB" className="h-8 w-auto" onError={(e)=>{(e.currentTarget as HTMLImageElement).style.display='none'}} />
-            <div className="font-bold tracking-wide text-[var(--abb-red)]">Guía de Trabajo — Acuerdo Smarketing 2026</div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="text-center font-bold tracking-wide text-[var(--abb-red)]">Guía de Trabajo — Acuerdo Smarketing 2026</div>
+          <div className="flex items-center justify-end gap-2">
             <button
               type="button"
               onClick={() => onLanguageChange('es')}
@@ -518,24 +517,6 @@ RIESGOS/BLOQUEOS INICIALES: _______________________________________`}</pre>
             </Details>
           </Section>
 
-          <Section id="anexos" title="18) Anexos (ejemplos y atajos)">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <Card title="Paquete de Revisión Mensual (ejemplo)">
-                <ul className="list-disc pl-5 text-sm space-y-1">
-                  <li>Portada con OKRs + estado semáforo.</li>
-                  <li>Top 3 riesgos/bloqueos con propuesta de decisión.</li>
-                  <li>Tabla de iniciativas: avance, uso, presupuesto, siguiente paso.</li>
-                </ul>
-              </Card>
-              <Card title="Ejemplo de Círculos">
-                <ul className="list-disc pl-5 text-sm space-y-1">
-                  <li>Canal Distribución — enfoque Instaladores.</li>
-                  <li>OEM Power Conversion — enfoque export USA.</li>
-                  <li>GenSet OEM — soporte homologaciones y GTM.</li>
-                </ul>
-              </Card>
-            </div>
-          </Section>
 
           <footer className="pt-6 text-xs text-[var(--muted)]">
             © ABB Electrification — Smart Power · Uso interno · Esta página resume la «Guía de Trabajo: Acuerdo Smarketing 2026».
@@ -631,7 +612,6 @@ function label(id: string) {
     case "glosario": return "15. Glosario";
     case "faq": return "16. FAQ";
     case "plantillas": return "17. Plantillas";
-    case "anexos": return "18. Anexos";
     default: return id;
   }
 }
