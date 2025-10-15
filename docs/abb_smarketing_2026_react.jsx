@@ -9,12 +9,7 @@ import React, { useEffect, useMemo, useState } from "react";
 //   /assets/fonts/ABBvoice-Italic.woff2
 // ---------------------------------------------------------------------------
 
-type Props = {
-  lang: 'es' | 'en'
-  onLanguageChange: (lang: 'es' | 'en') => void
-}
-
-export default function ABBSmarketing2026({ lang, onLanguageChange }: Props) {
+export default function ABBSmarketing2026() {
   // Side nav active section on scroll
   const ids = useMemo(
     () => [
@@ -56,40 +51,37 @@ export default function ABBSmarketing2026({ lang, onLanguageChange }: Props) {
     handler();
     return () => document.removeEventListener("scroll", handler as any);
   }, [ids]);
-  const base = import.meta.env.BASE_URL;
-  const toggleClass = (target: 'es' | 'en') => [
-    "rounded-xl border px-3 py-2 text-sm font-semibold transition",
-    lang === target
-      ? "bg-[var(--abb-red)] text-white border-[var(--abb-red)] shadow-sm"
-      : "bg-white text-[var(--abb-red)] border-[var(--abb-red)] hover:bg-[var(--abb-red)]/10"
-  ].join(" ");
 
   return (
     <div className="min-h-screen bg-white text-neutral-900">
-      
-      <header className="sticky top-0 z-50 bg-white text-[var(--ink)] border-b border-[var(--line)] shadow-sm">
+      {/* Global brand styles (ABB Voice + tokens) */}
+      <style>{`
+        @font-face { font-family: 'ABBvoice'; src: url('/assets/fonts/ABBvoice-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+        @font-face { font-family: 'ABBvoice'; src: url('/assets/fonts/ABBvoice-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+        @font-face { font-family: 'ABBvoice'; src: url('/assets/fonts/ABBvoice-Italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+        :root{
+          --abb-red:#E4002B;
+          --ink:#0b0b0b;
+          --muted:#5C5C5C;
+          --line:#E6E6E6;
+          --paper:#F7F7F7;
+          --ok:#0E8345;
+          --warn:#B45309;
+        }
+        html, body, #root { font-family: ABBvoice, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, system-ui, 'Apple Color Emoji', 'Segoe UI Emoji'; }
+        .abb-link { color: var(--abb-red); text-decoration: none; }
+        .abb-link:hover { text-decoration: underline; }
+      `}</style>
+
+      {/* Topbar */}
+      <header className="sticky top-0 z-50 bg-[var(--abb-red)] text-white shadow">
         <div className="mx-auto max-w-6xl px-5 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <img src={`${base}assets/abb-logo.svg`} alt="ABB" className="h-8 w-auto" onError={(e)=>{(e.currentTarget as HTMLImageElement).style.display='none'}} />
-            <div className="font-bold tracking-wide text-[var(--abb-red)]">Guía de Trabajo — Acuerdo Smarketing 2026</div>
+            <img src="/assets/abb-logo.svg" alt="ABB" className="h-8 w-auto" onError={(e)=>{(e.target as HTMLImageElement).style.display='none'}} />
+            <div className="font-bold tracking-wide">Guía de Trabajo — Acuerdo Smarketing 2026</div>
           </div>
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => onLanguageChange('es')}
-              className={toggleClass('es')}
-              aria-pressed={lang === 'es'}
-            >
-              ES
-            </button>
-            <button
-              type="button"
-              onClick={() => onLanguageChange('en')}
-              className={toggleClass('en')}
-              aria-pressed={lang === 'en'}
-            >
-              EN
-            </button>
+            <button onClick={()=>window.print()} className="rounded-xl border border-white/60 bg-white/10 px-3 py-2 text-sm hover:bg-white/20">Imprimir / PDF</button>
           </div>
         </div>
       </header>
@@ -538,7 +530,7 @@ RIESGOS/BLOQUEOS INICIALES: _______________________________________`}</pre>
           </Section>
 
           <footer className="pt-6 text-xs text-[var(--muted)]">
-            © ABB Electrification — Smart Power · Uso interno · Esta página resume la «Guía de Trabajo: Acuerdo Smarketing 2026».
+            © ABB Electrification — Smart Power · Uso interno · Esta página resume la «Guía de Trabajo: Acuerdo Smarketing 2026». Para imprimir o guardar, use «Imprimir / PDF».
           </footer>
         </main>
       </div>

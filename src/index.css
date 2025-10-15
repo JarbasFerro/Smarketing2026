@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* Brand tokens */
-:root{ --abb-red:#E4002B; --ink:#0b0b0b; --muted:#5C5C5C; --line:#E6E6E6; --paper:#F7F7F7; }
+:root{ --abb-red:#E4002B; --ink:#0b0b0b; --muted:#5C5C5C; --line:#E6E6E6; --paper:#F7F7F7; --ok:#0E8345; --warn:#B45309; }
 
 /* ABBvoice core (Light/Regular/Medium/Bold) */
 @font-face{ font-family:"ABBvoice"; src:url("/assets/fonts/ABBvoice_W_Lt.woff2") format("woff2"); font-weight:300; font-style:normal; font-display:swap; }
