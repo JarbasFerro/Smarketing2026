@@ -1,6 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
 
-export default function ABBSmarketing2026() {
+type Props = {
+  lang: 'es' | 'en'
+  onLanguageChange: (lang: 'es' | 'en') => void
+}
+
+export default function ABBSmarketing2026({ lang, onLanguageChange }: Props) {
   const ids = useMemo(() => [
     "basicos","vision","flujo","inicio30","ejemplo","principios",
     "sprints","trabajo","gobernanza","roles","rituales","kpis",
@@ -24,16 +29,39 @@ export default function ABBSmarketing2026() {
   }, [ids]);
 
   const base = import.meta.env.BASE_URL;
+  const toggleClass = (target: 'es' | 'en') => [
+    "rounded-xl border px-3 py-2 text-sm font-semibold transition",
+    lang === target
+      ? "bg-[var(--abb-red)] text-white border-[var(--abb-red)] shadow-sm"
+      : "bg-white text-[var(--abb-red)] border-[var(--abb-red)] hover:bg-[var(--abb-red)]/10"
+  ].join(" ");
 
   return (
     <div className="min-h-screen bg-white text-neutral-900">
-      <header className="sticky top-0 z-50 bg-[var(--abb-red)] text-white shadow">
+      <header className="sticky top-0 z-50 bg-white text-[var(--ink)] border-b border-[var(--line)] shadow-sm">
         <div className="mx-auto max-w-6xl px-5 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <img src={`${base}assets/abb-logo.svg`} alt="ABB" className="h-8 w-auto" onError={(e)=>{(e.currentTarget as HTMLImageElement).style.display='none'}} />
-            <div className="font-bold tracking-wide">Guía de Trabajo — Acuerdo Smarketing 2026</div>
+            <div className="font-bold tracking-wide text-[var(--abb-red)]">Guía de Trabajo — Acuerdo Smarketing 2026</div>
           </div>
-          <button onClick={()=>window.print()} className="rounded-xl border border-white/60 bg-white/10 px-3 py-2 text-sm hover:bg-white/20">Imprimir / PDF</button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => onLanguageChange('es')}
+              className={toggleClass('es')}
+              aria-pressed={lang === 'es'}
+            >
+              ES
+            </button>
+            <button
+              type="button"
+              onClick={() => onLanguageChange('en')}
+              className={toggleClass('en')}
+              aria-pressed={lang === 'en'}
+            >
+              EN
+            </button>
+          </div>
         </div>
       </header>
 
@@ -260,7 +288,7 @@ INICIATIVAS PRIORIZADAS: _____________________________</pre></details>`
           )}
 
           <footer className="pt-6 text-xs text-[var(--muted)]">
-            © ABB Electrification — Smart Power · Uso interno. “Imprimir / PDF” para exportar.
+            © ABB Electrification — Smart Power · Uso interno.
           </footer>
         </main>
       </div>
