@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brand tokens */
+:root{ --abb-red:#E4002B; --ink:#0b0b0b; --muted:#5C5C5C; --line:#E6E6E6; --paper:#F7F7F7; }
+
+/* ABBvoice core (Light/Regular/Medium/Bold) */
+@font-face{ font-family:"ABBvoice"; src:url("../assets/fonts/ABBvoice_W_Lt.woff2") format("woff2"); font-weight:300; font-style:normal; font-display:swap; }
+@font-face{ font-family:"ABBvoice"; src:url("../assets/fonts/ABBvoice_W_Rg.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:swap; }
+@font-face{ font-family:"ABBvoice"; src:url("../assets/fonts/ABBvoice_W_Md.woff2") format("woff2"); font-weight:500; font-style:normal; font-display:swap; }
+@font-face{ font-family:"ABBvoice"; src:url("../assets/fonts/ABBvoice_W_Bd.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:swap; }
+
+/* ABBvoice Display (SuperBold) for short, punchy headlines */
+@font-face{ font-family:"ABBvoice Display"; src:url("../assets/fonts/ABBvoiceDisplay_W_SBd.woff2") format("woff2"); font-weight:800; font-style:normal; font-display:swap; }
+
+/* Defaults */
+html, body, #root { font-family: ABBvoice, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, system-ui; }
+
+/* Headline helpers */
+.h-headline-short { font-family:"ABBvoice Display", ABBvoice, sans-serif; font-weight:800; letter-spacing:.02em; }
+.h-headline-long  { font-family:ABBvoice, sans-serif; font-weight:700; }
+.muted{ color:var(--muted); font-weight:300; }
