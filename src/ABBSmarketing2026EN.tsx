@@ -80,7 +80,7 @@ export default function ABBSmarketing2026EN({ lang, onLanguageChange }: Props) {
         <div className="mx-auto max-w-6xl px-5 py-10 grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-6">
           <div>
             <span className="inline-block rounded-full bg-[var(--abb-red)] px-3 py-1 text-xs font-bold text-white">Solution-focused transformation</span>
-            <h1 className="mt-2 text-3xl md:text-5xl font-bold leading-tight">One unified commercial engine for 2026</h1>
+            <h1 className="h-headline-short mt-2 text-3xl uppercase md:text-5xl leading-tight">One unified commercial engine for 2026</h1>
             <p className="mt-2 text-[var(--muted)]">
               How Product Marketing and Sales operate as <b>one team</b> to accelerate growth with <b>OKRs</b>,
               <b> sprints</b> and <b>monthly reviews</b>. This page explains everything from scratch with no prior knowledge required.

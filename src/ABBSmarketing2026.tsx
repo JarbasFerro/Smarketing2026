@@ -99,7 +99,7 @@ export default function ABBSmarketing2026({ lang, onLanguageChange }: Props) {
         <div className="mx-auto max-w-6xl px-5 py-10 grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-6">
           <div>
             <span className="inline-block rounded-full bg-[var(--abb-red)] px-3 py-1 text-xs font-bold text-white">Transformación basada en soluciones</span>
-            <h1 className="mt-2 text-3xl md:text-5xl font-bold leading-tight">Un motor comercial unificado para 2026</h1>
+            <h1 className="h-headline-short mt-2 text-3xl uppercase md:text-5xl leading-tight">Un motor comercial unificado para 2026</h1>
             <p className="mt-2 text-[var(--muted)]">
               Cómo Product Marketing y Ventas trabajan como <b>un solo equipo</b> para acelerar el crecimiento con <b>OKRs</b>,
               <b> sprints</b> y <b>revisiones mensuales</b>. Este sitio explica todo desde cero, sin suponer conocimientos previos.
